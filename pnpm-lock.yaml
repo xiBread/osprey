@@ -14,12 +14,18 @@ importers:
       drizzle-orm:
         specifier: ^0.40.0
         version: 0.40.0(gel@2.0.1)(kysely@0.27.6)(postgres@3.4.5)
+      fuzzysort:
+        specifier: ^3.1.0
+        version: 3.1.0
       mode-watcher:
         specifier: ^0.5.1
         version: 0.5.1(svelte@5.23.0)
       postgres:
         specifier: ^3.4.5
         version: 3.4.5
+      runed:
+        specifier: ^0.24.0
+        version: 0.24.0(svelte@5.23.0)
     devDependencies:
       '@eslint/compat':
         specifier: ^1.2.5
@@ -27,6 +33,9 @@ importers:
       '@eslint/js':
         specifier: ^9.18.0
         version: 9.22.0
+      '@faker-js/faker':
+        specifier: ^9.6.0
+        version: 9.6.0
       '@fontsource-variable/jetbrains-mono':
         specifier: ^5.2.5
         version: 5.2.5
@@ -595,6 +604,10 @@ packages:
   '@eslint/plugin-kit@0.2.7':
     resolution: {integrity: sha512-JubJ5B2pJ4k4yGxaNLdbjrnk9d/iDz6/q8wOilpIowd6PJPgaxCuHBnBszq7Ce2TyMrywm5r4PnKm6V3iiZF+g==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
+
+  '@faker-js/faker@9.6.0':
+    resolution: {integrity: sha512-3vm4by+B5lvsFPSyep3ELWmZfE3kicDtmemVpuwl1yH7tqtnHdsA6hG8fbXedMVdkzgtvzWoRgjSB4Q+FHnZiw==}
+    engines: {node: '>=18.0.0', npm: '>=9.0.0'}
 
   '@floating-ui/core@1.6.9':
     resolution: {integrity: sha512-uMXCuQ3BItDUbAMhIXw7UPXRfAlOAvZzdK9BWpE60MCn+Svt3aLn9jsPTi/WNGlRUu2uI0v5S7JiIUsbsvh3fw==}
@@ -1339,6 +1352,9 @@ packages:
     engines: {node: ^8.16.0 || ^10.6.0 || >=11.0.0}
     os: [darwin]
 
+  fuzzysort@3.1.0:
+    resolution: {integrity: sha512-sR9BNCjBg6LNgwvxlBd0sBABvQitkLzoVY9MYYROQVX/FvfJ4Mai9LsGhDgd8qYdds0bY77VzYd5iuB+v5rwQQ==}
+
   gel@2.0.1:
     resolution: {integrity: sha512-gfem3IGvqKqXwEq7XseBogyaRwGsQGuE7Cw/yQsjLGdgiyqX92G1xENPCE0ltunPGcsJIa6XBOTx/PK169mOqw==}
     engines: {node: '>= 18.0.0'}
@@ -1759,6 +1775,11 @@ packages:
 
   runed@0.23.4:
     resolution: {integrity: sha512-9q8oUiBYeXIDLWNK5DfCWlkL0EW3oGbk845VdKlPeia28l751VpfesaB/+7pI6rnbx1I6rqoZ2fZxptOJLxILA==}
+    peerDependencies:
+      svelte: ^5.7.0
+
+  runed@0.24.0:
+    resolution: {integrity: sha512-kLp0qUdiwEn1Q9zrQlToN7g1PQ+F0XI7J3eABPi/hSwMMy0vEQAdmZQkCvy1BtynAmGiD8CwNSy06KH7iUsCNg==}
     peerDependencies:
       svelte: ^5.7.0
 
@@ -2274,6 +2295,8 @@ snapshots:
     dependencies:
       '@eslint/core': 0.12.0
       levn: 0.4.1
+
+  '@faker-js/faker@9.6.0': {}
 
   '@floating-ui/core@1.6.9':
     dependencies:
@@ -3031,6 +3054,8 @@ snapshots:
   fsevents@2.3.3:
     optional: true
 
+  fuzzysort@3.1.0: {}
+
   gel@2.0.1:
     dependencies:
       '@petamoriken/float16': 3.9.2
@@ -3338,6 +3363,11 @@ snapshots:
       queue-microtask: 1.2.3
 
   runed@0.23.4(svelte@5.23.0):
+    dependencies:
+      esm-env: 1.2.2
+      svelte: 5.23.0
+
+  runed@0.24.0(svelte@5.23.0):
     dependencies:
       esm-env: 1.2.2
       svelte: 5.23.0

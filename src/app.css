@@ -147,3 +147,8 @@
 		cursor: pointer;
 	}
 }
+
+@utility auto-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(var(--auto-grid-width), 1fr));
+}

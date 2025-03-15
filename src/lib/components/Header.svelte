@@ -6,6 +6,7 @@
 	import { mode, toggleMode } from "mode-watcher";
 	import { signOut, useSession } from "$lib/auth";
 	import SignIn from "./SignIn.svelte";
+	import { onMount } from "svelte";
 
 	const navItems = [
 		{ href: "/tools", label: "tools" },
@@ -15,20 +16,29 @@
 	const session = useSession();
 
 	let open = $state(false);
+	let header = $state<HTMLElement>();
+
+	onMount(() => {
+		if (header) {
+			document.documentElement.style.setProperty("--header-height", `${header.offsetHeight}px`);
+		}
+	});
 </script>
 
-<header class="bg-background sticky top-0 z-10 border-b font-mono text-sm">
-	<nav class="flex max-h-13 justify-between">
-		<a class="flex items-center gap-3 border-r px-6 py-4" href="/">
+<header class="bg-background sticky top-0 z-20 border-b font-mono text-sm" bind:this={header}>
+	<nav class="auto-grid justify-between [--auto-grid-width:60px]">
+		<a class="col-span-4 flex items-center gap-3 border-r px-6" href="/">
 			<img src="https://placehold.co/24" alt="Osprey" />
 			<span class="text-lg font-medium">Osprey</span>
 		</a>
 
-		<ul class="flex items-center divide-x">
+		<ul class="auto-grid col-start-5 -col-end-1 divide-x *:h-full">
+			<div class="-col-end-7"></div>
+
 			{#each navItems as item (item.label)}
-				<li class="group relative px-6 py-4 first:border-l">
+				<li class="group relative col-span-2 first:border-l">
 					<a
-						class="group-hover:text-foreground text-muted-foreground block size-full"
+						class="group-hover:text-foreground text-muted-foreground flex size-full items-center justify-center"
 						href={item.href}
 					>
 						{item.label}
@@ -36,9 +46,9 @@
 				</li>
 			{/each}
 
-			<li>
+			<li class="flex aspect-square items-center justify-center">
 				<button
-					class="text-muted-foreground hover:text-foreground flex h-13 w-14 items-center justify-center"
+					class="text-muted-foreground hover:text-foreground flex items-center justify-center"
 					type="button"
 					onclick={toggleMode}
 				>
@@ -50,10 +60,10 @@
 				</button>
 			</li>
 
-			<li>
+			<li class="flex aspect-square items-center justify-center">
 				{#if $session.data}
 					<button
-						class="text-muted-foreground hover:text-foreground flex h-13 w-14 items-center justify-center"
+						class="text-muted-foreground hover:text-foreground flex items-center justify-center"
 						type="button"
 						onclick={async () => await signOut()}
 						aria-label="Sign out"
