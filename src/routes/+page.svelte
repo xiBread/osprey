@@ -47,7 +47,7 @@
 		{#each views as { name, icon: Icon } (name)}
 			<button
 				class={[
-					"hover:text-foreground hover:bg-accent bg-background flex aspect-square items-center justify-center p-5",
+					"hover:text-foreground hover:bg-accent bg-background flex aspect-square items-center justify-center p-5 transition-colors",
 					view.current === name ? "text-foreground" : "text-muted-foreground",
 				]}
 				title="Toggle {name} view"

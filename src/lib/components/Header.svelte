@@ -48,7 +48,7 @@
 
 			<li class="flex aspect-square items-center justify-center">
 				<button
-					class="text-muted-foreground hover:text-foreground flex items-center justify-center"
+					class="text-muted-foreground hover:text-foreground flex items-center justify-center transition-colors"
 					type="button"
 					onclick={toggleMode}
 				>
@@ -63,7 +63,7 @@
 			<li class="flex aspect-square items-center justify-center">
 				{#if $session.data}
 					<button
-						class="text-muted-foreground hover:text-foreground flex items-center justify-center"
+						class="text-muted-foreground hover:text-foreground flex items-center justify-center transition-colors"
 						type="button"
 						onclick={async () => await signOut()}
 						aria-label="Sign out"
@@ -72,7 +72,7 @@
 					</button>
 				{:else}
 					<button
-						class="text-muted-foreground hover:text-foreground flex w-14 items-center justify-center"
+						class="text-muted-foreground hover:text-foreground flex items-center justify-center transition-colors"
 						type="button"
 						onclick={() => (open = true)}
 						aria-label="Sign in"
