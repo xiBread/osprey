@@ -9,6 +9,7 @@
 	import { onMount } from "svelte";
 
 	const navItems = [
+		{ href: "/profiles", label: "profiles" },
 		{ href: "/tools", label: "tools" },
 		{ href: "/about", label: "about" },
 	];
@@ -33,7 +34,7 @@
 		</a>
 
 		<ul class="auto-grid col-start-5 -col-end-1 divide-x *:h-full">
-			<div class="-col-end-7"></div>
+			<div class="-col-end-9"></div>
 
 			{#each navItems as item (item.label)}
 				<li class="group relative col-span-2 first:border-l">
