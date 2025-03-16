@@ -39,7 +39,7 @@ export const profileRelations = relations(profile, ({ one, many }) => ({
 		fields: [profile.userId],
 		references: [user.id],
 	}),
-	relationships: many(relatedProfiles),
+	relationships: many(relatedProfiles, { relationName: "relationships" }),
 }));
 
 export const relatedProfiles = pgTable(
@@ -60,10 +60,12 @@ export const relatedProfilesRelations = relations(relatedProfiles, ({ one }) => 
 	profile: one(profile, {
 		fields: [relatedProfiles.profileId],
 		references: [profile.id],
+		relationName: "profile",
 	}),
 	relationship: one(profile, {
 		fields: [relatedProfiles.relationshipId],
 		references: [profile.id],
+		relationName: "relationships",
 	}),
 }));
 
