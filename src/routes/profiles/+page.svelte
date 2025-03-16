@@ -21,7 +21,9 @@
 
 	const search: FormEventHandler<HTMLInputElement> = (event) => {
 		const query = event.currentTarget.value.trim();
-		const results = fuzzysort.go(query, data.profiles, { key: "fullName" });
+		const results = fuzzysort.go(query, data.profiles, {
+			keys: ["firstName", "middleName", "lastName"],
+		});
 
 		if (query) {
 			profiles = results.map((result) => result.obj);
